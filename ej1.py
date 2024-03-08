@@ -1,27 +1,69 @@
-def swap(arr, i, j):
-  aux = arr[i]
-  arr[i] = arr[j]
-  arr[j] = aux
+arr = []
 
-def burbuja(arr):
-  for i in range(len(arr) - 1):
-    for j in range(len(arr) - i - 1):
-      if arr[j] > arr[j + 1]:
-        swap(arr, j, j + 1)
-  return arr
+print("Defina largo del Arreglo")
+ArrLong = input()
+
+for i in range(int(ArrLong)):
+    print("Defina Elemento(Int):")
+
+    Num = input()
+    Num = int(Num)
+    arr.append(Num)
+    print("Array = ", arr)
+
+print("Defina N:") 
+n = input()
+n = int(n)
+
+def swap(arr,x,j):
+
+    aux = arr[x]
+    arr[x] = arr[j]
+    arr[j] = aux
     
-def busquedaBinaria(arr, n):
-    d = len(arr)/2
-    
-    if arr[d] == n:
-        return true
-    if arr[d] < n:
-        #(arr[d:], n)
-        for i in range(len(arr[d:])):
-            for j in range(len(arr[]))
-        #(arr[:d], n)
+    return
+def Sort(arr):
 
-arr=burbuja([6, 8, 2, 5, 1, 9])
-busquedaBinaria(arr,5)
+    for x in range(0,len(arr),1):
+        min = x
+        for j in range(x+1,len(arr),1):
+            if arr[j] < arr[min]:
+                min = j
+            swap(arr,x,min)
 
+    return arr
 
+def SearchBin(arr, n):
+
+    izquierda = 0 
+
+    derecha = len(arr) - 1
+
+    while izquierda <= derecha:
+
+        medio = (izquierda + derecha) // 2
+
+        if arr[medio] == n:
+
+            return medio
+
+        elif arr[medio] > n:
+
+            derecha = medio - 1
+
+        else:
+
+            izquierda = medio + 1
+
+    return -1
+
+resultado = SearchBin(arr, n)
+
+def respuesta(resultado):
+
+    if resultado != -1:
+        return print(f"El arreglo es {Sort(arr)} y el elemento {n} si está dentro del arreglo.")
+    else:
+        return print(f"El arreglo es {Sort(arr)} y el elemento {n} no está en el arreglo.")
+
+print(respuesta(resultado))
